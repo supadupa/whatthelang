@@ -1,4 +1,4 @@
 future==0.16.0
 Cython==0.27.2
-cysignals==1.6.5
-pyfasttext==0.4.3
+#fastText==0.8.22
+git+https://github.com/facebookresearch/fastText@master

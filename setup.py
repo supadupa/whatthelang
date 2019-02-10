@@ -4,9 +4,9 @@ except ImportError:
     from distutils.core import setup
 
 
-with open('README.md') as f:
+with open('README.md', encoding='utf-8') as f:
     readme = f.read()
-with open('LICENSE') as f:
+with open('LICENSE', encoding='utf-8') as f:
     license = f.read()
 
 
@@ -21,7 +21,8 @@ setup(
     keywords='language detection library',
     packages=['whatthelang'],
     include_package_data=True,
-    install_requires=['Cython','cysignals','pyfasttext'],
+    install_requires=['Cython', 'fastText>=0.8.22'],
+    dependency_links=['https://github.com/facebookresearch/fastText/tarball/master#egg=fastText-0.8.22'],
     license=license,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
