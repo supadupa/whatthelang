@@ -14,6 +14,7 @@ class WhatTheLang(object):
         return fastText.load_model(self.model_file)
 
     def _clean_up(self,txt):
+        # The below removes a word containing only numbers
         txt = re.sub(r"\b\d+\b", "", txt)
         return txt
 
