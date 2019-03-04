@@ -9,18 +9,17 @@ class WhatTheLang(object):
     def __init__(self):
         self.model_file = MODEL_FILE
         self.model = self.load_model()
-        self.unknown = "CANT_PREDICT"
 
     def load_model(self):
         return fastText.load_model(self.model_file)
 
-    def _clean_up(self,txt):
+    def _clean_up(self, txt):
         txt = re.sub(r"\b\d+\b", "", txt)
         return txt
 
     def _flatten(self, pred):
         return [
-            self.lang_from_label(item[0]) if item else self.unknown
+            self.lang_from_label(item[0]) if item else None
             for item in pred
         ]
 
@@ -37,8 +36,8 @@ class WhatTheLang(object):
     def predict_lang(self, inp):
         if type(inp) != list:
             cleaned_txt = self._clean_up(inp)
-            if cleaned_txt == "":
-                raise ValueError("Not enough text to predict language")
+            if not cleaned_txt:
+                return None
             pred, confidence = self.model.predict([cleaned_txt])
             return self._flatten(pred)[0]
         else:
