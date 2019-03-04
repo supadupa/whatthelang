@@ -21,7 +21,7 @@ class WhatTheLangTest():
         assert pred == ['en','ml']
 
     def test_num_langs(self):
-        assert len(self.wtl._get_langs()) ==176
+        assert len(self.wtl.known_langs()) == 176
 
     def test_unknown(self):
         pred = self.wtl.predict_lang("asdfs")
