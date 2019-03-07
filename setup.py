@@ -21,7 +21,7 @@ setup(
     keywords='language detection library',
     packages=['whatthelang'],
     include_package_data=True,
-    install_requires=['fasttext'],
+    install_requires=['fasttext >= 0.8.3'],
     license=license,
     classifiers=[
         'Development Status :: 5 - Production/Stable',

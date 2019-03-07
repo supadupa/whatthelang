@@ -1,4 +1,4 @@
-import fastText
+import fasttext
 from os import path
 import re
 
@@ -11,7 +11,7 @@ class WhatTheLang(object):
         self.model = self.load_model()
 
     def load_model(self):
-        return fastText.load_model(self.model_file)
+        return fasttext.load_model(self.model_file)
 
     def _clean_up(self, txt):
         txt = re.sub(r"\b\d+\b", "", txt)
